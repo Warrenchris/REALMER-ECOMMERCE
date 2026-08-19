@@ -115,8 +115,10 @@
 }
 
 .realmer-product-gallery__main {
-    background-color: var(--rm-warm-white);
-    border-radius: var(--rm-radius-md);
+    background-color: var(--rm-white);
+    border: 1px solid var(--rm-border-light);
+    border-radius: var(--rm-radius-xl);
+    box-shadow: var(--rm-shadow-sm);
     aspect-ratio: 1;
     display: flex;
     align-items: center;
@@ -140,20 +142,23 @@
 .realmer-product-gallery__thumb {
     width: 80px;
     height: 80px;
-    background-color: var(--rm-warm-white);
-    border-radius: var(--rm-radius-sm);
-    border: 2px solid transparent;
+    background-color: var(--rm-white);
+    border-radius: var(--rm-radius-md);
+    border: 1px solid var(--rm-border-light);
+    box-shadow: var(--rm-shadow-xs);
     overflow: hidden;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: border-color var(--rm-transition-fast);
+    transition: all var(--rm-transition-fast);
 }
 
 .realmer-product-gallery__thumb.active,
 .realmer-product-gallery__thumb:hover {
-    border-color: var(--rm-obsidian);
+    border-color: var(--rm-accent);
+    transform: translateY(-2px);
+    box-shadow: var(--rm-shadow-sm);
 }
 
 .realmer-product-gallery__thumb img {
@@ -272,7 +277,9 @@
     display: flex;
     align-items: center;
     border: 1px solid var(--rm-border);
-    border-radius: var(--rm-radius-sm);
+    border-radius: var(--rm-radius-full);
+    overflow: hidden;
+    background: var(--rm-white);
 }
 
 .realmer-quantity-selector .qty-controls button {
@@ -297,8 +304,8 @@
     width: 56px;
     text-align: center;
     border: none;
-    border-left: 1px solid var(--rm-border);
-    border-right: 1px solid var(--rm-border);
+    border-left: 1px solid var(--rm-border-light);
+    border-right: 1px solid var(--rm-border-light);
     padding: 10px 0;
     font-weight: var(--rm-weight-medium);
     border-radius: 0;
@@ -323,8 +330,10 @@
     align-items: center;
     gap: var(--rm-space-3);
     padding: var(--rm-space-4);
-    background-color: var(--rm-warm-white);
-    border-radius: var(--rm-radius-md);
+    background-color: var(--rm-white);
+    border: 1px solid var(--rm-border-light);
+    border-radius: var(--rm-radius-lg);
+    box-shadow: var(--rm-shadow-xs);
     font-size: var(--rm-text-sm);
 }
 
@@ -332,7 +341,7 @@
     width: 32px;
     height: 32px;
     background-color: #4CAF50;
-    border-radius: var(--rm-radius-sm);
+    border-radius: var(--rm-radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -359,8 +368,10 @@
     flex-direction: column;
     gap: var(--rm-space-3);
     padding: var(--rm-space-4);
-    background-color: var(--rm-warm-white);
-    border-radius: var(--rm-radius-md);
+    background-color: var(--rm-white);
+    border: 1px solid var(--rm-border-light);
+    border-radius: var(--rm-radius-lg);
+    box-shadow: var(--rm-shadow-xs);
 }
 
 .realmer-delivery-info__item {
@@ -373,7 +384,7 @@
 .realmer-delivery-info__item svg {
     width: 18px;
     height: 18px;
-    color: var(--rm-muted);
+    color: var(--rm-accent);
     flex-shrink: 0;
 }
 
@@ -400,9 +411,11 @@
     display: flex;
     flex-direction: column;
     gap: 2px;
-    padding: var(--rm-space-3);
-    background-color: var(--rm-warm-white);
-    border-radius: var(--rm-radius-sm);
+    padding: var(--rm-space-3) var(--rm-space-4);
+    background-color: var(--rm-white);
+    border: 1px solid var(--rm-border-light);
+    border-radius: var(--rm-radius-md);
+    box-shadow: var(--rm-shadow-xs);
 }
 
 .realmer-spec-item__label {
@@ -538,7 +551,8 @@
 .checkout-step.active .checkout-step__number {
     border-color: var(--rm-accent);
     background-color: var(--rm-accent);
-    color: var(--rm-obsidian);
+    color: #FFFFFF;
+    box-shadow: 0 2px 8px var(--rm-accent-glow);
 }
 
 .checkout-step.completed .checkout-step__number {
@@ -575,7 +589,8 @@
     padding: var(--rm-space-8);
     background-color: var(--rm-white);
     border: 1px solid var(--rm-border-light);
-    border-radius: var(--rm-radius-md);
+    border-radius: var(--rm-radius-xl);
+    box-shadow: var(--rm-shadow-xs);
 }
 
 .checkout-section__header {
@@ -589,12 +604,14 @@
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    background-color: var(--rm-warm-white);
+    background-color: var(--rm-surface-subtle);
+    border: 1px solid var(--rm-border-light);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: var(--rm-text-sm);
     font-weight: var(--rm-weight-semibold);
+    color: var(--rm-accent);
 }
 
 .checkout-section__title {
@@ -618,8 +635,10 @@
     position: sticky;
     top: 100px;
     padding: var(--rm-space-8);
-    background-color: var(--rm-warm-white);
-    border-radius: var(--rm-radius-md);
+    background-color: var(--rm-white);
+    border: 1px solid var(--rm-border-light);
+    border-radius: var(--rm-radius-xl);
+    box-shadow: var(--rm-shadow-md);
 }
 
 .realmer-order-summary h3 {

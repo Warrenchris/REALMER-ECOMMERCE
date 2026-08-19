@@ -1315,14 +1315,17 @@
     justify-content: center;
     padding: var(--rm-space-8) var(--rm-space-6);
     border: 1px solid var(--rm-border-light);
-    border-radius: var(--rm-radius-md);
+    border-radius: var(--rm-radius-lg);
+    background-color: var(--rm-white);
+    box-shadow: var(--rm-shadow-xs);
     transition: all var(--rm-transition-base);
     cursor: pointer;
 }
 
 .brand-item:hover {
     border-color: var(--rm-border);
-    box-shadow: var(--rm-shadow-sm);
+    box-shadow: var(--rm-shadow-md);
+    transform: translateY(-3px);
 }
 
 .brand-item img {
@@ -1387,7 +1390,7 @@
     gap: var(--rm-space-3);
     padding: var(--rm-space-4);
     background-color: rgba(255,255,255,0.06);
-    border-radius: var(--rm-radius-md);
+    border-radius: var(--rm-radius-lg);
     border: 1px solid rgba(255,255,255,0.08);
     transition: all var(--rm-transition-base);
     cursor: pointer;
@@ -1398,9 +1401,10 @@
 }
 
 .business-category:hover {
-    background-color: rgba(255,255,255,0.1);
-    border-color: rgba(255,255,255,0.15);
+    background-color: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.2);
     color: var(--rm-white);
+    transform: translateY(-2px);
 }
 
 .business-category svg {
@@ -1423,8 +1427,10 @@
 }
 
 .business-section__visual img {
-    border-radius: var(--rm-radius-lg);
+    border-radius: var(--rm-radius-xl);
     max-width: 100%;
+    box-shadow: var(--rm-shadow-xl);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* =================================================================
@@ -1459,7 +1465,7 @@
 }
 
 /* =================================================================
-   JOURNAL PREVIEW
+   JOURNAL PREVIEW (Floating Editorial Cards)
    ================================================================= */
 .journal-cards {
     display: grid;
@@ -1472,15 +1478,18 @@
     flex-direction: column;
     text-decoration: none;
     color: inherit;
-    border-radius: var(--rm-radius-md);
+    border-radius: var(--rm-radius-lg);
     overflow: hidden;
+    background-color: var(--rm-white);
     border: 1px solid var(--rm-border-light);
-    transition: transform var(--rm-transition-base), box-shadow var(--rm-transition-base);
+    box-shadow: var(--rm-shadow-xs);
+    transition: all var(--rm-transition-base);
 }
 
 .journal-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--rm-shadow-md);
+    transform: translateY(-6px);
+    box-shadow: var(--rm-shadow-hover);
+    border-color: rgba(221, 161, 54, 0.4);
     color: inherit;
 }
 
@@ -1497,7 +1506,7 @@
 }
 
 .journal-card:hover .journal-card__image img {
-    transform: scale(1.05);
+    transform: scale(1.06);
 }
 
 .journal-card__body {
@@ -1548,18 +1557,30 @@
 .trust-card {
     text-align: center;
     padding: var(--rm-space-8);
+    background-color: var(--rm-white);
+    border: 1px solid var(--rm-border-light);
+    border-radius: var(--rm-radius-lg);
+    box-shadow: var(--rm-shadow-xs);
+    transition: all var(--rm-transition-base);
+}
+
+.trust-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--rm-shadow-md);
+    border-color: var(--rm-border);
 }
 
 .trust-card__icon {
     width: 56px;
     height: 56px;
     border-radius: var(--rm-radius-lg);
-    background-color: var(--rm-warm-white);
+    background-color: var(--rm-surface-subtle);
+    border: 1px solid var(--rm-border-light);
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto var(--rm-space-4);
-    color: var(--rm-obsidian);
+    color: var(--rm-accent);
 }
 
 .trust-card__icon svg {
@@ -1585,6 +1606,7 @@
 .site-footer {
     background-color: var(--rm-obsidian);
     color: var(--rm-soft-gray);
+    margin-top: var(--rm-space-16);
 }
 
 .footer-statement {
@@ -1684,13 +1706,13 @@
     color: white;
     text-decoration: none;
     z-index: var(--rm-z-sticky);
-    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
     transition: transform var(--rm-transition-base), box-shadow var(--rm-transition-base);
 }
 
 .whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
+    transform: translateY(-3px) scale(1.08);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
     color: white;
 }
 
@@ -1700,7 +1722,7 @@
 }
 
 /* =================================================================
-   RECOMMENDATION WIZARD
+   RECOMMENDATION WIZARD (Floating Modal)
    ================================================================= */
 .wizard-overlay {
     position: fixed;
@@ -1708,11 +1730,13 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(18, 17, 15, 0.5);
     z-index: var(--rm-z-modal);
     opacity: 0;
     visibility: hidden;
     transition: all var(--rm-transition-base);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1725,14 +1749,16 @@
 
 .wizard-panel {
     background-color: var(--rm-white);
-    border-radius: var(--rm-radius-lg);
+    border-radius: var(--rm-radius-xl);
     max-width: 560px;
     width: 90%;
-    max-height: 80vh;
+    max-height: 85vh;
     overflow-y: auto;
     padding: var(--rm-space-10);
     transform: scale(0.95);
     transition: transform var(--rm-transition-slow);
+    box-shadow: var(--rm-shadow-xl);
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .wizard-overlay.is-active .wizard-panel {
@@ -1770,21 +1796,26 @@
 .wizard-option {
     padding: var(--rm-space-5);
     border: 1.5px solid var(--rm-border);
-    border-radius: var(--rm-radius-md);
+    border-radius: var(--rm-radius-lg);
     text-align: center;
     cursor: pointer;
     transition: all var(--rm-transition-base);
-    background: transparent;
+    background: var(--rm-surface-subtle);
     font-family: var(--rm-font);
+    box-shadow: var(--rm-shadow-xs);
 }
 
 .wizard-option:hover {
     border-color: var(--rm-obsidian);
+    transform: translateY(-2px);
+    box-shadow: var(--rm-shadow-sm);
+    background: var(--rm-white);
 }
 
 .wizard-option.is-selected {
     border-color: var(--rm-accent);
     background-color: var(--rm-accent-soft);
+    box-shadow: 0 4px 14px -2px var(--rm-accent-glow);
 }
 
 .wizard-option__icon {
