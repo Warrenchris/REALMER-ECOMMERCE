@@ -1,8 +1,9 @@
-<?php
-/**
- * Setup Script for Realmer Technology Sample Store
- */
-require_once('/var/www/html/wp-load.php');
+if (!defined('ABSPATH')) {
+    $wp_load = '/var/www/html/wp-load.php';
+    if (file_exists($wp_load)) {
+        require_once($wp_load);
+    }
+}
 
 // 1. Set WooCommerce Currency
 update_option('woocommerce_currency', 'KES');
@@ -15,29 +16,41 @@ update_option('woocommerce_enable_ajax_add_to_cart', 'yes');
 // 2. Set Front Page
 $front_page_id = get_option('page_on_front');
 if (!$front_page_id) {
-    $front_page_id = wp_insert_post(array(
-        'post_title'   => 'Home',
-        'post_content' => '',
-        'post_status'  => 'publish',
-        'post_type'    => 'page',
-    ));
+    $existing_front = get_page_by_path('home');
+    if ($existing_front) {
+        $front_page_id = $existing_front->ID;
+    } else {
+        $front_page_id = wp_insert_post(array(
+            'post_title'   => 'Home',
+            'post_name'    => 'home',
+            'post_status'  => 'publish',
+            'post_type'    => 'page',
+        ));
+    }
     update_option('show_on_front', 'page');
     update_option('page_on_front', $front_page_id);
 }
 
-// 3. Create Custom Pages
+// 3. Create Custom Pages (Idempotent)
 $custom_pages = array(
     array('title' => 'Deals', 'slug' => 'deals', 'template' => 'page-deals.php'),
     array('title' => 'Bundles', 'slug' => 'bundles', 'template' => 'page-bundles.php'),
     array('title' => 'Business Solutions', 'slug' => 'business', 'template' => 'page-business.php'),
     array('title' => 'Networking', 'slug' => 'networking', 'template' => 'page-networking.php'),
     array('title' => 'About Realmer', 'slug' => 'about', 'template' => 'page-about.php'),
-    array('title' => 'Track Order', 'slug' => 'track-order', 'template' => 'page.php'),
+    array('title' => 'Track Order', 'slug' => 'track-order', 'template' => 'page-track-order.php'),
+    array('title' => 'Warranty Policy', 'slug' => 'warranty', 'template' => 'page-warranty.php'),
+    array('title' => 'Delivery Information', 'slug' => 'delivery-information', 'template' => 'page-delivery-information.php'),
+    array('title' => 'Payment Options', 'slug' => 'payment-options', 'template' => 'page-payment-options.php'),
     array('title' => 'Help & FAQs', 'slug' => 'help', 'template' => 'page.php'),
 );
 
 foreach ($custom_pages as $cp) {
     $page = get_page_by_path($cp['slug']);
+    if (!$page) {
+        $page = get_page_by_title($cp['title'], OBJECT, 'page');
+    }
+
     if (!$page) {
         $pid = wp_insert_post(array(
             'post_title'   => $cp['title'],
@@ -45,9 +58,12 @@ foreach ($custom_pages as $cp) {
             'post_status'  => 'publish',
             'post_type'    => 'page',
         ));
-        if ($cp['template'] !== 'page.php') {
-            update_post_meta($pid, '_wp_page_template', $cp['template']);
-        }
+    } else {
+        $pid = $page->ID;
+    }
+
+    if ($pid && $cp['template'] !== 'page.php') {
+        update_post_meta($pid, '_wp_page_template', $cp['template']);
     }
 }
 
