@@ -1,0 +1,501 @@
+/**
+ * =================================================================
+ * REALMER TECHNOLOGY — RESPONSIVE STYLES
+ * =================================================================
+ */
+
+/* =================================================================
+   TABLET (max-width: 1024px)
+   ================================================================= */
+@media (max-width: 1024px) {
+    .hero .container {
+        grid-template-columns: 1fr;
+        gap: var(--rm-space-8);
+        min-height: auto;
+        padding-top: var(--rm-space-10);
+        padding-bottom: var(--rm-space-10);
+    }
+
+    .hero__title {
+        font-size: 2.5rem;
+    }
+
+    .hero__image {
+        order: -1;
+    }
+
+    .trust-signals .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .trust-signal:nth-child(2) {
+        border-right: none;
+    }
+
+    .trust-signal:nth-child(-n+2) {
+        border-bottom: 1px solid var(--rm-border-light);
+    }
+
+    .need-tiles {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .editorial-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .brand-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .business-section .container {
+        grid-template-columns: 1fr;
+        gap: var(--rm-space-10);
+    }
+
+    .business-section__visual {
+        order: -1;
+    }
+
+    .business-categories {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .journal-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-columns {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--rm-space-8);
+    }
+
+    .realmer-shop-wrapper .container {
+        flex-direction: column;
+    }
+
+    .filter-sidebar {
+        width: 100%;
+        display: none;
+    }
+
+    .filter-sidebar.is-open {
+        display: block;
+    }
+
+    .realmer-product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .realmer-single-product .container {
+        grid-template-columns: 1fr;
+        gap: var(--rm-space-8);
+    }
+
+    .realmer-product-gallery {
+        position: static;
+    }
+
+    .realmer-checkout__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .realmer-order-summary {
+        position: static;
+    }
+
+    .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =================================================================
+   MOBILE (max-width: 768px)
+   ================================================================= */
+@media (max-width: 768px) {
+    .container {
+        padding-left: var(--rm-space-4);
+        padding-right: var(--rm-space-4);
+    }
+
+    .section {
+        padding-top: var(--rm-space-12);
+        padding-bottom: var(--rm-space-12);
+    }
+
+    h1, .rm-display {
+        font-size: var(--rm-text-3xl);
+    }
+
+    h2, .rm-heading-section {
+        font-size: var(--rm-text-2xl);
+    }
+
+    /* Utility bar */
+    .utility-bar {
+        font-size: 10px;
+    }
+
+    .utility-bar__messages {
+        display: none;
+    }
+
+    /* Main Navigation */
+    .main-nav .container {
+        height: 60px;
+    }
+
+    .main-nav__menu {
+        display: none;
+    }
+
+    .nav-mobile-toggle {
+        display: flex;
+    }
+
+    .main-nav__actions .nav-action-btn:not(.nav-cart-btn):not(.nav-search-btn) {
+        display: none;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--rm-white);
+        z-index: var(--rm-z-modal);
+        transform: translateX(-100%);
+        transition: transform var(--rm-transition-slow);
+        overflow-y: auto;
+        padding: var(--rm-space-6);
+    }
+
+    .mobile-menu.is-active {
+        transform: translateX(0);
+    }
+
+    .mobile-menu__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: var(--rm-space-8);
+    }
+
+    .mobile-menu__nav {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .mobile-menu__nav li a {
+        display: block;
+        padding: var(--rm-space-4) 0;
+        font-size: var(--rm-text-lg);
+        font-weight: var(--rm-weight-medium);
+        color: var(--rm-obsidian);
+        border-bottom: 1px solid var(--rm-border-light);
+    }
+
+    /* Hero */
+    .hero .container {
+        padding-top: var(--rm-space-8);
+        padding-bottom: var(--rm-space-8);
+    }
+
+    .hero__title {
+        font-size: 2rem;
+    }
+
+    .hero__description {
+        font-size: var(--rm-text-base);
+    }
+
+    .hero__actions {
+        flex-direction: column;
+    }
+
+    .hero__actions .btn {
+        width: 100%;
+    }
+
+    /* Trust signals */
+    .trust-signals .container {
+        grid-template-columns: 1fr;
+    }
+
+    .trust-signal {
+        border-right: none;
+        border-bottom: 1px solid var(--rm-border-light);
+        padding: var(--rm-space-5) var(--rm-space-4);
+    }
+
+    .trust-signal:last-child {
+        border-bottom: none;
+    }
+
+    /* Need tiles */
+    .need-tiles {
+        grid-template-columns: 1fr;
+    }
+
+    .need-tile {
+        aspect-ratio: 16 / 9;
+    }
+
+    /* Editorial cards */
+    .editorial-cards {
+        grid-template-columns: 1fr;
+    }
+
+    /* Product rail */
+    .product-rail .product-card {
+        flex: 0 0 240px;
+    }
+
+    /* Brand grid */
+    .brand-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Business section */
+    .business-categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .business-section__title {
+        font-size: var(--rm-text-2xl);
+    }
+
+    .business-section__actions {
+        flex-direction: column;
+    }
+
+    .business-section__actions .btn {
+        width: 100%;
+    }
+
+    /* Journal */
+    .journal-cards {
+        grid-template-columns: 1fr;
+    }
+
+    /* Trust grid */
+    .trust-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer */
+    .footer-columns {
+        grid-template-columns: 1fr;
+        gap: var(--rm-space-6);
+    }
+
+    .footer-bottom .container {
+        flex-direction: column;
+        gap: var(--rm-space-4);
+        text-align: center;
+    }
+
+    .footer-statement__text {
+        font-size: var(--rm-text-2xl);
+    }
+
+    /* Shop */
+    .realmer-product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--rm-space-3);
+    }
+
+    .shop-toolbar {
+        flex-direction: column;
+        gap: var(--rm-space-3);
+        align-items: stretch;
+    }
+
+    /* Product page */
+    .realmer-product-summary__title {
+        font-size: var(--rm-text-2xl);
+    }
+
+    .realmer-price-block__current {
+        font-size: var(--rm-text-xl);
+    }
+
+    .realmer-specs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Checkout */
+    .checkout-steps {
+        gap: var(--rm-space-3);
+    }
+
+    .checkout-step__label {
+        display: none;
+    }
+
+    .checkout-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    /* Grid utilities */
+    .grid-2,
+    .grid-3,
+    .grid-4,
+    .grid-6 {
+        grid-template-columns: 1fr;
+    }
+
+    /* Bottom navigation */
+    .mobile-bottom-nav {
+        display: block;
+    }
+
+    body {
+        padding-bottom: 72px;
+    }
+
+    .single-product .mobile-bottom-nav {
+        display: none;
+    }
+
+    .single-product .mobile-purchase-bar {
+        display: block;
+    }
+
+    .single-product body {
+        padding-bottom: 80px;
+    }
+
+    /* Cart drawer */
+    .cart-drawer {
+        width: 100%;
+    }
+
+    /* Search overlay */
+    .search-panel {
+        margin-top: 0;
+        border-radius: 0;
+        height: 100vh;
+        max-height: 100vh;
+    }
+
+    /* WhatsApp button adjustment */
+    .whatsapp-float {
+        bottom: 80px;
+    }
+
+    /* Wizard */
+    .wizard-options {
+        grid-template-columns: 1fr;
+    }
+
+    /* Filter bottom sheet */
+    .filter-bottom-sheet {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        max-height: 80vh;
+        background-color: var(--rm-white);
+        z-index: var(--rm-z-modal);
+        border-radius: var(--rm-radius-lg) var(--rm-radius-lg) 0 0;
+        transform: translateY(100%);
+        transition: transform var(--rm-transition-slow);
+        overflow-y: auto;
+        padding: var(--rm-space-6);
+    }
+
+    .filter-bottom-sheet.is-active {
+        transform: translateY(0);
+    }
+
+    .filter-bottom-sheet__handle {
+        width: 40px;
+        height: 4px;
+        background-color: var(--rm-soft-gray);
+        border-radius: 2px;
+        margin: 0 auto var(--rm-space-6);
+    }
+
+    /* Mobile filter/sort bar */
+    .mobile-filter-bar {
+        display: flex;
+        gap: var(--rm-space-3);
+        margin-bottom: var(--rm-space-4);
+    }
+
+    .mobile-filter-bar .btn {
+        flex: 1;
+    }
+}
+
+/* =================================================================
+   SMALL MOBILE (max-width: 480px)
+   ================================================================= */
+@media (max-width: 480px) {
+    .hero__title {
+        font-size: 1.75rem;
+    }
+
+    .realmer-product-grid {
+        gap: var(--rm-space-2);
+    }
+
+    .product-card__body {
+        padding: var(--rm-space-3);
+    }
+
+    .product-card__title {
+        font-size: var(--rm-text-sm);
+    }
+
+    .product-card__price {
+        font-size: var(--rm-text-base);
+    }
+
+    .product-card__quick-actions {
+        display: none;
+    }
+
+    .brand-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--rm-space-3);
+    }
+
+    .brand-item {
+        padding: var(--rm-space-5) var(--rm-space-4);
+    }
+}
+
+/* =================================================================
+   PRINT STYLES
+   ================================================================= */
+@media print {
+    .utility-bar,
+    .main-nav,
+    .mobile-bottom-nav,
+    .mobile-purchase-bar,
+    .whatsapp-float,
+    .cart-drawer,
+    .cart-drawer-overlay,
+    .search-overlay {
+        display: none !important;
+    }
+
+    body {
+        color: #000;
+        background: #fff;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+}

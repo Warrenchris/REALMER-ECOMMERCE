@@ -1,0 +1,16 @@
+# Environment
+.env
+
+# Docker volumes and logs
+wp-data/
+db-data/
+*.log
+-p/
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Node / Dependencies if any
+node_modules/
