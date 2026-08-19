@@ -12,17 +12,27 @@
    ================================================================= */
 :root {
     /* Colors */
-    --rm-obsidian:     #111111;
-    --rm-graphite:     #1C1C1C;
-    --rm-warm-white:   #F7F5F0;
-    --rm-white:        #FFFFFF;
-    --rm-soft-gray:    #E8E6E1;
-    --rm-muted:        #6B6B6B;
-    --rm-border:       #E0DED9;
-    --rm-border-light: #F0EEE9;
-    --rm-accent:       #FED800;
-    --rm-accent-hover: #E5C200;
-    --rm-accent-soft:  rgba(254, 216, 0, 0.1);
+    --rm-obsidian:     #12110F;
+    --rm-graphite:     #1E1D1A;
+    --rm-cream:        #F8F6F0;    /* Warm luxury cream background */
+    --rm-cream-dark:   #EFECE3;    /* Secondary cream surface */
+    --rm-cream-light:  #FCFAF6;    /* Soft glowing cream */
+    --rm-warm-white:   #F3EFE6;
+    --rm-white:        #FFFFFF;    /* Crisp pure white for raised cards / elements */
+    --rm-surface:      #FFFFFF;
+    --rm-surface-subtle: #F6F4ED;
+    --rm-soft-gray:    #E4E0D6;
+    --rm-muted:        #6E6A62;
+    --rm-border:       #E2DDD2;
+    --rm-border-light: #EDE8DE;
+    --rm-border-subtle: rgba(226, 221, 210, 0.65);
+    
+    /* Refined Sophisticated Accent (Warm Golden Honey / Amber instead of bright harsh yellow) */
+    --rm-accent:       #DDA136;
+    --rm-accent-hover: #C88E23;
+    --rm-accent-light: #F4BA58;
+    --rm-accent-soft:  rgba(221, 161, 54, 0.12);
+    --rm-accent-glow:  rgba(221, 161, 54, 0.28);
     --rm-success:      #2D8A4E;
     --rm-error:        #C53030;
     --rm-info:         #2B6CB0;
@@ -74,22 +84,26 @@
     --rm-container-lg: 1440px;
 
     /* Border Radius */
-    --rm-radius-sm:  4px;
-    --rm-radius-md:  8px;
-    --rm-radius-lg:  12px;
-    --rm-radius-xl:  16px;
+    --rm-radius-sm:  6px;
+    --rm-radius-md:  12px;
+    --rm-radius-lg:  18px;
+    --rm-radius-xl:  24px;
+    --rm-radius-full: 9999px;
 
     /* Transitions */
     --rm-transition-fast:   150ms ease;
-    --rm-transition-base:   200ms ease;
-    --rm-transition-slow:   300ms ease;
+    --rm-transition-base:   220ms cubic-bezier(0.16, 1, 0.3, 1);
+    --rm-transition-slow:   350ms cubic-bezier(0.16, 1, 0.3, 1);
     --rm-transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
 
-    /* Shadows */
-    --rm-shadow-sm:    0 1px 3px rgba(0,0,0,0.06);
-    --rm-shadow-md:    0 4px 12px rgba(0,0,0,0.08);
-    --rm-shadow-lg:    0 8px 30px rgba(0,0,0,0.1);
-    --rm-shadow-hover: 0 8px 24px rgba(0,0,0,0.12);
+    /* Refined Layered Floating Shadows */
+    --rm-shadow-xs:    0 1px 3px rgba(18, 17, 15, 0.04);
+    --rm-shadow-sm:    0 2px 8px -1px rgba(18, 17, 15, 0.06), 0 1px 3px -1px rgba(18, 17, 15, 0.03);
+    --rm-shadow-md:    0 10px 24px -4px rgba(18, 17, 15, 0.08), 0 3px 8px -2px rgba(18, 17, 15, 0.04);
+    --rm-shadow-lg:    0 18px 40px -6px rgba(18, 17, 15, 0.10), 0 6px 16px -3px rgba(18, 17, 15, 0.05);
+    --rm-shadow-xl:    0 28px 64px -12px rgba(18, 17, 15, 0.14), 0 12px 24px -5px rgba(18, 17, 15, 0.06);
+    --rm-shadow-hover: 0 16px 36px -4px rgba(18, 17, 15, 0.12), 0 6px 14px -2px rgba(18, 17, 15, 0.05);
+    --rm-shadow-floating: 0 14px 36px -6px rgba(18, 17, 15, 0.09), 0 2px 8px -2px rgba(18, 17, 15, 0.04);
 
     /* Z-index scale */
     --rm-z-dropdown:  100;
@@ -116,6 +130,7 @@ html {
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     scroll-behavior: smooth;
+    background-color: var(--rm-cream);
 }
 
 body {
@@ -124,7 +139,7 @@ body {
     font-weight: var(--rm-weight-normal);
     line-height: 1.6;
     color: var(--rm-obsidian);
-    background-color: var(--rm-white);
+    background-color: var(--rm-cream);
     overflow-x: hidden;
 }
 
@@ -363,9 +378,9 @@ small, .rm-text-sm {
     font-size: var(--rm-text-base);
     font-weight: var(--rm-weight-medium);
     line-height: 1;
-    padding: 14px 28px;
+    padding: 13px 26px;
     border: none;
-    border-radius: var(--rm-radius-sm);
+    border-radius: var(--rm-radius-full);
     cursor: pointer;
     transition: all var(--rm-transition-base);
     text-decoration: none;
@@ -380,56 +395,67 @@ small, .rm-text-sm {
 
 .btn-primary {
     background-color: var(--rm-accent);
-    color: var(--rm-obsidian);
+    color: #FFFFFF;
+    font-weight: var(--rm-weight-semibold);
+    box-shadow: 0 4px 14px -2px var(--rm-accent-glow);
 }
 
 .btn-primary:hover {
     background-color: var(--rm-accent-hover);
-    color: var(--rm-obsidian);
-    transform: translateY(-1px);
-    box-shadow: var(--rm-shadow-md);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -2px var(--rm-accent-glow);
 }
 
 .btn-secondary {
     background-color: var(--rm-obsidian);
     color: var(--rm-white);
+    box-shadow: 0 4px 14px -2px rgba(18, 17, 15, 0.25);
 }
 
 .btn-secondary:hover {
     background-color: var(--rm-graphite);
     color: var(--rm-white);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px -2px rgba(18, 17, 15, 0.35);
 }
 
 .btn-outline {
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
     color: var(--rm-obsidian);
-    border: 1.5px solid var(--rm-border);
+    border: 1px solid var(--rm-border);
+    box-shadow: var(--rm-shadow-xs);
 }
 
 .btn-outline:hover {
     border-color: var(--rm-obsidian);
     color: var(--rm-obsidian);
+    transform: translateY(-2px);
+    box-shadow: var(--rm-shadow-sm);
+    background-color: #FFFFFF;
 }
 
 .btn-ghost {
     background: transparent;
     color: var(--rm-obsidian);
-    padding: 10px 16px;
+    padding: 10px 18px;
+    border-radius: var(--rm-radius-full);
 }
 
 .btn-ghost:hover {
     background-color: var(--rm-warm-white);
+    transform: translateY(-1px);
 }
 
 .btn-sm {
     font-size: var(--rm-text-sm);
-    padding: 10px 20px;
+    padding: 9px 18px;
 }
 
 .btn-lg {
     font-size: var(--rm-text-md);
-    padding: 18px 36px;
+    padding: 16px 32px;
 }
 
 .btn-icon {
